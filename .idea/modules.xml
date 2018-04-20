@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradleRest.iml" filepath="$PROJECT_DIR$/.idea/modules/GradleRest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradleRest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GradleRest_main.iml" group="GradleRest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GradleRest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GradleRest_test.iml" group="GradleRest" />
+    </modules>
+  </component>
+</project>
