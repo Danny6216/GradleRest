@@ -16,7 +16,6 @@ import javax.transaction.Transactional;
 @Setter
 public class RestRepository {
 
-
     @Autowired
     private ListableBeanFactory beanFactory;
     
@@ -35,5 +34,16 @@ public class RestRepository {
     @SuppressWarnings("unchecked")
     public void save(Domain entity){
         getRepository(entity.getClass()).save(entity)
+    }
+    
+    public void save(Domain entity){
+        getRepository(entity.getClass()).delete(entity)
+    }
+    
+    public Object findOne(Class clazz, Long id){
+        return getRepository(clazz).findOne(id);
+    }
+    public Object findAll(Class clazz){
+        return getRepository(clazz).findAll();
     }
 }
