@@ -19,6 +19,7 @@ public class Shift{
 
     @ManyToOne
     @JoinColumn(name = "ticket")
+    @JsonManagedReference
     private Ticket ticket;
 
     @Column(name = "moderator")
