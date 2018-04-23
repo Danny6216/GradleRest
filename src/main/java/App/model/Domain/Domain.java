@@ -5,14 +5,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Data
+@MappedSuperclass
 public abstract class Domain {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id", nullable = false, updatable = false, insertable = false)
     private Long id;
 }
