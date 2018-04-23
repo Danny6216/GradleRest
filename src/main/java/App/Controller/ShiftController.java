@@ -9,15 +9,25 @@ import java.util.List;
 
 @RestController
 public class ShiftController {
-    @Autowired
+
     private ShiftCRUD shiftCRUD;
 
+    public ShiftController(@Autowired ShiftCRUD shiftCRUD){
+        this.shiftCRUD = shiftCRUD;
+    }
+
     @GetMapping(value = "/shift")
-    public Shift shift(@RequestParam(value = "id", defaultValue = "1") Long id){
+    public Shift getShiftById(@RequestParam(value = "id", defaultValue = "1") Long id){
         return shiftCRUD.findShiftById(id);
     }
+    @GetMapping
+    public Shift getShiftById(
+            @RequestParam(value = "moderator", defaultValue = "1") String moderator){
+        return shiftCRUD.findShiftByModerator(moderator);
+    }
+
     @PostMapping(value = "/shift")
-    public void addShift(@RequestParam Shift shift){
+    public void addShift(@RequestBody Shift shift){
         shiftCRUD.save(shift);
     }
     @DeleteMapping(value = "/shift")

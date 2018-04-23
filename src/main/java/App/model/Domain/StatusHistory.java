@@ -13,6 +13,7 @@ import java.util.Date;
 @Access(AccessType.FIELD)
 @Table(name = "status_history")
 public class StatusHistory extends Domain{
+
     @ManyToOne
     @JoinColumn(name = "ticket")
     private Ticket ticket;

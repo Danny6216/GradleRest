@@ -1,21 +1,18 @@
 package App.model.Domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Getter @Setter
 @Entity
 @Table(name = "shift")
 @Access(AccessType.FIELD)
-public class Shift{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+public class Shift extends Domain{
 
     @ManyToOne
     @JoinColumn(name = "ticket")
@@ -26,10 +23,10 @@ public class Shift{
     private String moderator;
 
     @Column(name = "date_start")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateStart;
 
     @Column(name = "date_end")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateEnd;
 }
