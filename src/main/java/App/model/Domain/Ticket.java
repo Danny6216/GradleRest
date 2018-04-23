@@ -12,17 +12,14 @@ import java.util.List;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = "ticket")
-public class Ticket{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+public class Ticket extends Domain{
 
     @OneToMany(mappedBy = "id")
     private List<TicketChat> ticketChats;
 
-//    @OneToMany(mappedBy = "id")
-//    private List<Shift> shifts;
+   @OneToMany(mappedBy = "id")
+   @JsonBackReference
+   private List<Shift> shifts;
 
     @Column(name = "priority")
     private String priority;
