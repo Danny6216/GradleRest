@@ -12,23 +12,28 @@ import javax.transaction.Transactional;
 
 @Slf4j
 @Repository("RestRepository")
-@Transactional
+@Getter
+@Setter
 public class RestRepository {
 
 
     @Autowired
     private ListableBeanFactory beanFactory;
+    
     private Repositories repositories;
 
     @PostConstruct
     public void setRepositories() {
         repositories = new Repositories(beanFactory);
     }
-
-//    public JpaRepository getRepository(Class clazz){
-//        Optional optional = repositories.getRepositoryFor(clazz);
-//        return Optional.ofNullable((JpaRepository) repositories.getRepositoryFor())
-//                .orElseThrow(()-> new RuntimeException("")) ;
-//    }
-//    public void save
+    @SuppressWarnings("rawtypes")
+    public CrudRepository getRepository(Class clazz){
+        CrudRepository res = (CrudRepository) repositories.getRepositoryFor(clazz);
+        return res;
+    }
+    
+    @SuppressWarnings("unchecked")
+    public void save(Domain entity){
+        getRepository(entity.getClass()).save(entity)
+    }
 }
