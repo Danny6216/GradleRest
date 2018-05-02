@@ -12,15 +12,14 @@ import java.util.Date;
 @Entity
 @Table(name = "shift")
 @Access(AccessType.FIELD)
-public class Shift extends Domain{
+public class Shift extends Domain {
 
     @ManyToOne
     @JoinColumn(name = "ticket")
-    @JsonManagedReference
     private Ticket ticket;
 
     @Column(name = "moderator")
-    private String moderator;
+    private Integer moderator;
 
     @Column(name = "date_start")
     @Temporal(TemporalType.TIMESTAMP)

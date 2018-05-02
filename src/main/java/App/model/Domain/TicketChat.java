@@ -11,12 +11,15 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "ticket_chat")
-public class TicketChat {
+public class TicketChat extends Domain{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "author")
+    private Long author;
 
     @ManyToOne
     @JoinColumn(name = "ticket", nullable = false)

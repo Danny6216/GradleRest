@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
@@ -25,8 +24,8 @@ public class RestRepository {
 
     private ListableBeanFactory beanFactory;
 
-    RestRepository(@Autowired
-                           ListableBeanFactory beanFactory){
+
+    RestRepository(@Autowired ListableBeanFactory beanFactory){
         this.beanFactory = beanFactory;
     }
 
@@ -38,18 +37,11 @@ public class RestRepository {
         repositories = new Repositories(beanFactory);
     }
 
-    public JpaRepository getRepo(Class clazz){
+    public JpaRepository getRepository(Class clazz){
         return Optional.ofNullable((JpaRepository) repositories.getRepositoryFor(clazz))
                 .orElseThrow(() -> new RuntimeException(""));
     }
 
-
-
-    @SuppressWarnings("unchecked")
-    public CrudRepository getRepository(Class clazz){
-        CrudRepository res = (CrudRepository) repositories.getRepositoryFor(clazz);
-        return res;
-    }
     
     @SuppressWarnings("unchecked")
     public void save(Domain entity){

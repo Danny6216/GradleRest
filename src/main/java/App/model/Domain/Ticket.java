@@ -12,14 +12,16 @@ import java.util.List;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = "ticket")
-public class Ticket{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private Long id;
+public class Ticket extends Domain {
 
     @OneToMany(mappedBy = "id")
     private List<TicketChat> ticketChats;
+
+    @Column(name = "user_name")
+    private String username;
+
+    @Column(name = "user_email")
+    private String userEmail;
 
     @OneToMany(mappedBy = "id")
     private List<Shift> shifts;
@@ -28,7 +30,6 @@ public class Ticket{
     private String priority;
 
     @Column(name = "status")
-//    @Enumerated(EnumType.STRING)
     private String ticketStatus;
 
     @Column(name = "title")
