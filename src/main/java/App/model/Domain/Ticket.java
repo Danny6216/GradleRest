@@ -17,20 +17,15 @@ public class Ticket extends Domain {
     @OneToMany(mappedBy = "id")
     private List<TicketChat> ticketChats;
 
-    @Column(name = "user_name")
-    private String username;
-
-    @Column(name = "user_email")
-    private String userEmail;
+    @ManyToOne
+    @JoinColumn(name = "author")
+    private Users author;
 
     @OneToMany(mappedBy = "id")
     private List<Shift> shifts;
 
     @Column(name = "priority")
     private String priority;
-
-    @Column(name = "status")
-    private String ticketStatus;
 
     @Column(name = "title")
     private String title;
@@ -47,10 +42,7 @@ public class Ticket extends Domain {
     @Column(name = "task_query")
     private String taskQuery;
 
-    @Column(name = "task_modquer")
-    private String taskModQuery;
-
     @Column(name = "date_created")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
 }

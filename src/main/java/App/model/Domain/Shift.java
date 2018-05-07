@@ -15,11 +15,12 @@ import java.util.Date;
 public class Shift extends Domain {
 
     @ManyToOne
-    @JoinColumn(name = "ticket")
+    @JoinColumn(name = "ticket_id")
     private Ticket ticket;
 
-    @Column(name = "moderator")
-    private Integer moderator;
+    @ManyToOne
+    @JoinColumn(name = "moderator")
+    private Users moderator;
 
     @Column(name = "date_start")
     @Temporal(TemporalType.TIMESTAMP)

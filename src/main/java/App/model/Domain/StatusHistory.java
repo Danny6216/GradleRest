@@ -15,11 +15,11 @@ import java.util.Date;
 public class StatusHistory extends Domain{
 
     @ManyToOne
-    @JoinColumn(name = "ticket")
+    @JoinColumn(name = "ticket_id")
     private Ticket ticket;
 
     @Column (name = "date_change")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateChange;
 
     @Column(name = "note")
