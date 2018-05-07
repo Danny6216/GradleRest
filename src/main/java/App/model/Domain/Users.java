@@ -19,12 +19,12 @@ public class Users extends Domain {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "id")
-    private List<Ticket> ticketList;
-
-    @OneToMany(mappedBy = "id")
-    private List<Shift> shiftList;
-
-    @OneToMany(mappedBy = "id")
-    private List<TicketChat> ticketChatList;
+//    @OneToMany(mappedBy = "id")
+//    private List<Ticket> ticketList;
+//
+//    @OneToMany(mappedBy = "id")
+//    private List<Shift> shiftList;
+//
+//    @OneToMany(mappedBy = "id")
+//    private List<TicketChat> ticketChatList;
 }

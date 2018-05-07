@@ -14,15 +14,17 @@ import java.util.List;
 @Table(name = "ticket")
 public class Ticket extends Domain {
 
-    @OneToMany(mappedBy = "id")
-    private List<TicketChat> ticketChats;
+//    @OneToMany(mappedBy = "id")
+//    private List<TicketChat> ticketChats;
 
-    @ManyToOne
-    @JoinColumn(name = "author")
-    private Users author;
+//    @ManyToOne
+//    @JoinColumn(name = "author")
+//    private Users author;
+    @Column(name = "author")
+    private Long author;
 
-    @OneToMany(mappedBy = "id")
-    private List<Shift> shifts;
+//    @OneToMany(mappedBy = "id")
+//    private List<Shift> shifts;
 
     @Column(name = "priority")
     private String priority;

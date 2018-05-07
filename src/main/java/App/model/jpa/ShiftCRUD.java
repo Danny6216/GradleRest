@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Date;
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "shift", path = "shifts")
+@RepositoryRestResource(collectionResourceRel = "shifts", path = "shifts")
 public interface ShiftCRUD extends PagingAndSortingRepository<Shift, Long> {
 
     Shift findById(@Param("id") Long id);
 
-    List<Shift> findAllByModerator(@Param("moderator") Integer moderator);
+    List<Shift> findAllByModerator(@Param("moderator") Long moderator);
 
     List<Shift> findAllByDateStart(@Param("dstart") Date date);
 

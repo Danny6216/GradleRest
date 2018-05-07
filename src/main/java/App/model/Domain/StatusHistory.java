@@ -14,9 +14,12 @@ import java.util.Date;
 @Table(name = "status_history")
 public class StatusHistory extends Domain{
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+//    @ManyToOne
+//    @JoinColumn(name = "ticket_id")
+//    private Ticket ticket;
+
+    @Column(name = "ticket_id")
+    private Long ticketId;
 
     @Column (name = "date_change")
     @Temporal(TemporalType.TIMESTAMP)

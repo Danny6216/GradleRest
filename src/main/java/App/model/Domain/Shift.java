@@ -14,13 +14,19 @@ import java.util.Date;
 @Access(AccessType.FIELD)
 public class Shift extends Domain {
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id")
-    private Ticket ticket;
+//    @ManyToOne
+//    @JoinColumn(name = "ticket_id")
+//    private Ticket ticket;
 
-    @ManyToOne
-    @JoinColumn(name = "moderator")
-    private Users moderator;
+//    @ManyToOne
+//    @JoinColumn(name = "moderator")
+//    private Users moderator;
+
+    @Column(name = "moderator")
+    private Long moderator;
+
+    @Column(name = "ticket_id")
+    private Long ticket;
 
     @Column(name = "date_start")
     @Temporal(TemporalType.TIMESTAMP)

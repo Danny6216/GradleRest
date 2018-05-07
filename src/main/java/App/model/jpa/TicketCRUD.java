@@ -13,8 +13,7 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "tickets", path = "tickets")
 public interface TicketCRUD extends PagingAndSortingRepository<Ticket, Long> {
     Ticket findById(@Param("id") Long id);
-//    List<Ticket> findAllByAuthor(@Param("") String email);
-//    List<Ticket> findAllByUsername(@Param("user") String user);
+    List<Ticket> findAllByAuthor(@Param("author") Long author);
     List<Ticket> findAllByDateCreated(@Param("created") Date date);
     List<Ticket> findAllByPriority(@Param("priority") String priority);
     List<Ticket> findAllByTaskNumber(@Param("tnum") String taskNumber);

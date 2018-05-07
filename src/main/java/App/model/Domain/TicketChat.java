@@ -20,11 +20,17 @@ public class TicketChat extends Domain {
     @Column(name = "message")
     private String message;
 
-    @ManyToOne
-    @JoinColumn(name = "author")
-    private Users author;
+//    @ManyToOne
+//    @JoinColumn(name = "author")
+//    private Users author;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "ticket", nullable = false)
+//    private Ticket ticket;
 
-    @ManyToOne
-    @JoinColumn(name = "ticket", nullable = false)
-    private Ticket ticket;
+    @Column(name = "ticket")
+    private Long ticket;
+
+    @Column(name = "author")
+    private Long author;
 }

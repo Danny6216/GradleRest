@@ -16,9 +16,7 @@ public interface TicketChatCRUD extends PagingAndSortingRepository<TicketChat, L
 
     List<TicketChat> findAllByDateCreate(@Param("date") Date date);
     @Query(value = "SELECT * FROM rest_msi.ticket_chat t WHERE t.ticket = ?1", nativeQuery = true)
-    List<TicketChat> findAllByTicketId(@Param("ticketid") Long ticket);
-
-    List<TicketChat> findAllByTicket(@Param("ticket") Ticket ticket);
+    List<TicketChat> findAllByTicket(@Param("ticketid") Long ticket);
 
     List<TicketChat> findAllByAuthor(@Param("author") Long author);
 }
