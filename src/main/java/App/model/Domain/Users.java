@@ -20,11 +20,11 @@ public class Users extends Domain {
     private String email;
 
 //    @OneToMany(mappedBy = "id")
-//    private List<Ticket> ticketList;
+//    private List<Ticket> tickets;
 //
 //    @OneToMany(mappedBy = "id")
-//    private List<Shift> shiftList;
+//    private List<Shift> shifts;
 //
 //    @OneToMany(mappedBy = "id")
-//    private List<TicketChat> ticketChatList;
+//    private List<TicketChat> ticketChats;
 }

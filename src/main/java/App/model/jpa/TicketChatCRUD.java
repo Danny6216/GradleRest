@@ -14,9 +14,21 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "chats", path = "chats")
 public interface TicketChatCRUD extends PagingAndSortingRepository<TicketChat, Long> {
 
-    List<TicketChat> findAllByDateCreate(@Param("date") Date date);
-    @Query(value = "SELECT * FROM rest_msi.ticket_chat t WHERE t.ticket = ?1", nativeQuery = true)
+    List<TicketChat> findAllByDateCreateBefore(@Param("date") Date date);
+
     List<TicketChat> findAllByTicket(@Param("ticketid") Long ticket);
 
+    List<TicketChat> findAllByTicketOrderByDateCreateAsc(@Param("ticketid") Long ticket);
+
+    List<TicketChat> findAllByTicketOrderByDateCreateDesc(@Param("ticketid") Long ticket);
+
+    List<TicketChat> findAllByTicketAndAuthor(
+            @Param("ticketid") Long ticket,
+            @Param("author") Long author);
+
     List<TicketChat> findAllByAuthor(@Param("author") Long author);
+
+    List<TicketChat> findAllByDateCreateBetween(
+            @Param("dateFrom") Date date1,
+            @Param("dateTo") Date date2);
 }

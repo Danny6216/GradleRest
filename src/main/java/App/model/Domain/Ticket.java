@@ -1,5 +1,6 @@
 package App.model.Domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class Ticket extends Domain {
 //    @ManyToOne
 //    @JoinColumn(name = "author")
 //    private Users author;
+
     @Column(name = "author")
     private Long author;
 
@@ -44,6 +46,7 @@ public class Ticket extends Domain {
     @Column(name = "task_query")
     private String taskQuery;
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     @Column(name = "date_created")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;

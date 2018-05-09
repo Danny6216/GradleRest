@@ -20,4 +20,9 @@ public interface ShiftCRUD extends PagingAndSortingRepository<Shift, Long> {
     List<Shift> findAllByDateStart(@Param("dstart") Date date);
 
     List<Shift> findAllByDateEnd(@Param("dend") Date date);
+
+    List<Shift> findAllByTicket(@Param("ticket_id") Long id);
+
+    Shift findTopByTicketOrderByDateStartDesc(@Param("ticket_id") Long ticket);
+
 }

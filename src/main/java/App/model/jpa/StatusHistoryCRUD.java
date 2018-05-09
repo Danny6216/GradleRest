@@ -14,7 +14,15 @@ public interface StatusHistoryCRUD extends PagingAndSortingRepository<StatusHist
 
     StatusHistory findById(@Param("id") Long id);
 
+    StatusHistory findTopByTicketId(@Param("ticket_id") Long ticketId);
+
+    StatusHistory findTopByTicketIdOrderByIdDesc(@Param("ticket_id") Long ticketId);
+
+    List<StatusHistory> findAllByTicketId(@Param("ticket_id") Long ticketId);
+
     List<StatusHistory> findAllByStatus(@Param("status") String status);
 
-    List<StatusHistory> findAllByDateChange(@Param("date") Date date);
+    List<StatusHistory> findAllByDateChangeBetween(
+            @Param("dateFrom") Date date1,
+            @Param("dateTo") Date date2);
 }

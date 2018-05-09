@@ -1,5 +1,6 @@
 package App.model.Domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,10 +29,12 @@ public class Shift extends Domain {
     @Column(name = "ticket_id")
     private Long ticket;
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     @Column(name = "date_start")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateStart;
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     @Column(name = "date_end")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateEnd;

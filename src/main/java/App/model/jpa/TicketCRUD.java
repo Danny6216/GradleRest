@@ -15,7 +15,13 @@ public interface TicketCRUD extends PagingAndSortingRepository<Ticket, Long> {
     Ticket findById(@Param("id") Long id);
     List<Ticket> findAllByAuthor(@Param("author") Long author);
     List<Ticket> findAllByDateCreated(@Param("created") Date date);
+    List<Ticket> findAllByDateCreatedBefore(@Param("created") Date date);
+    List<Ticket> findAllByDateCreatedAfter(@Param("created") Date date);
+
     List<Ticket> findAllByPriority(@Param("priority") String priority);
-    List<Ticket> findAllByTaskNumber(@Param("tnum") String taskNumber);
-    List<Ticket> findAllByTaskStage(@Param("tstage") String taskStage);
+    List<Ticket> findAllByTaskNumber(@Param("taskNum") String taskNumber);
+    List<Ticket> findAllByTaskStage(@Param("taskStage") String taskStage);
+    List<Ticket> findAllByDateCreatedBetween(
+            @Param("dateFrom") Date date1,
+            @Param("dateTo") Date date2);
 }
